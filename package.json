@@ -1,0 +1,19 @@
+{
+	"name": "url-shortening-api",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "concurrently \"vite --host\" \"npx tailwindcss -i ./src/css/global.css -o ./src/css/tailwind.css --watch\"",
+		"build": "vite build",
+		"preview": "vite preview"
+	},
+	"devDependencies": {
+		"concurrently": "^8.0.1",
+		"tailwindcss": "^3.3.1",
+		"vite": "^4.2.0"
+	},
+	"dependencies": {
+		"scrollreveal": "^4.0.9"
+	}
+}
