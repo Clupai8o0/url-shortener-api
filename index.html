@@ -60,24 +60,30 @@
 		</header>
 
 		<!-- Mobile Navigation -->
-		<div
-			id="nav-mobile"
-			class="hidden fixed z-50 text-white bg-[hsl(257,27%,26%)] w-[calc(100%-40px)] left-5 top-36 rounded-lg px-5 py-8"
-		>
-			<ul class="flex flex-col justify-center items-center gap-5 font-semibold">
-				<li><a href="#">Features</a></li>
-				<li><a href="#">Pricing</a></li>
-				<li><a href="#">Resources</a></li>
-			</ul>
-			<hr class="w-full border-[hsl(0,0%,45%)] my-5" />
-			<ul class="font-semibold flex items-center flex-col justify-center gap-5">
-				<li><a href="#">Login</a></li>
-				<li class="w-full">
-					<button class="bg-[hsl(180,66%,49%)] w-full py-3 rounded-full">
-						Sign Up
-					</button>
-				</li>
-			</ul>
+		<div id="nav-mobile-overlay" class="hidden fixed top-0 z-50 w-full h-full bg-transparent">
+			<div
+				id="nav-mobile"
+				class="fixed z-50 text-white bg-[hsl(257,27%,26%)] w-[calc(100%-40px)] left-5 top-36 rounded-lg px-5 py-8"
+			>
+				<ul
+					class="flex flex-col justify-center items-center gap-5 font-semibold"
+				>
+					<li><a href="#">Features</a></li>
+					<li><a href="#">Pricing</a></li>
+					<li><a href="#">Resources</a></li>
+				</ul>
+				<hr class="w-full border-[hsl(0,0%,45%)] my-5" />
+				<ul
+					class="font-semibold flex items-center flex-col justify-center gap-5"
+				>
+					<li><a href="#">Login</a></li>
+					<li class="w-full">
+						<button class="bg-[hsl(180,66%,49%)] w-full py-3 rounded-full">
+							Sign Up
+						</button>
+					</li>
+				</ul>
+			</div>
 		</div>
 
 		<main class="w-full flex flex-col justify-center items-center">
