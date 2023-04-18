@@ -3,137 +3,377 @@
 	<head>
 		<meta charset="UTF-8" />
 		<link rel="shortcut icon" href="/favicon-32x32.png" type="image/png" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0, minimum-scale=1"
+		/>
 		<title>Shortly</title>
 		<link rel="stylesheet" href="src/css/tailwind.css" />
+		<link rel="stylesheet" href="src/css/burger.css" />
 	</head>
 	<body>
-		<nav>
-			<div>
-				<img src="/logo.svg" alt="shortly logo" />
-				<ul>
-					<li>Features</li>
-					<li>Pricing</li>
-					<li>Resources</li>
-				</ul>
-			</div>
-			<div>
-				<a href="#">Login</a>
-				<button>Sign Up</button>
-			</div>
-		</nav>
+		<header
+			class="w-full bg-white fixed top-0 z-[100] flex items-center justify-center"
+		>
+			<nav
+				class="flex px-5 py-8 justify-between items-center w-full max-w-6xl md:px-12"
+			>
+				<div class="flex">
+					<img src="/logo.svg" alt="shortly logo" />
 
-		<section id="hero">
-			<div>
-				<div>
-					<h1>More than just shorter links</h1>
-					<p>
-						Build your brand's recognition and get detailed insights on how your
-						links are performing.
-					</p>
-					<button>Get Started</button>
+					<!-- Desktop nav links -->
+					<ul
+						class="ml-8 xl:ml-16 hidden md:flex items-center gap-6 xl:gap-10 text-grayish-violet"
+					>
+						<li class="cursor-pointer hover:text-very-dark-blue">
+							<a href="#">Features</a>
+						</li>
+						<li class="cursor-pointer hover:text-very-dark-blue">
+							<a href="#">Pricing</a>
+						</li>
+						<li class="cursor-pointer hover:text-very-dark-blue">
+							<a href="#">Resources</a>
+						</li>
+					</ul>
 				</div>
 
-				<div>
+				<!-- Desktop CTA buttons -->
+				<div class="hidden md:flex items-center gap-6 xl:gap-10">
+					<a href="#" class="text-grayish-violet cursor-pointer hover:text-very-dark-blue">Login</a>
+					<button class="btn-cta mt-0">Sign Up</button>
+				</div>
+
+				<!-- Mobile Burger -->
+				<button class="md:hidden">
+					<input type="checkbox" id="checkbox" />
+					<label for="checkbox" class="toggle">
+						<div class="bars" id="bar1"></div>
+						<div class="bars" id="bar2"></div>
+						<div class="bars" id="bar3"></div>
+					</label>
+				</button>
+			</nav>
+		</header>
+
+		<!-- Mobile Navigation -->
+		<div
+			class="hidden fixed z-50 text-white bg-[hsl(257,27%,26%)] w-[calc(100%-40px)] left-5 top-36 rounded-lg px-5 py-8"
+		>
+			<ul class="flex flex-col justify-center items-center gap-5 font-semibold">
+				<li><a href="#">Features</a></li>
+				<li><a href="#">Pricing</a></li>
+				<li><a href="#">Resources</a></li>
+			</ul>
+			<hr class="w-full border-[hsl(0,0%,45%)] my-5" />
+			<ul class="font-semibold flex items-center flex-col justify-center gap-5">
+				<li><a href="#">Login</a></li>
+				<li class="w-full">
+					<button class="bg-[hsl(180,66%,49%)] w-full py-3 rounded-full">
+						Sign Up
+					</button>
+				</li>
+			</ul>
+		</div>
+
+		<main class="w-full flex flex-col justify-center items-center">
+			<div class="main-container">
+				<section id="hero" class="pt-24 md:pt-36">
+					<!-- Hero -->
+					<div class="flex flex-col-reverse md:flex-row">
+						<!-- Details -->
+						<div
+							class="py-8 flex flex-col items-center justify-center md:w-1/2 md:items-start"
+						>
+							<h1 class="title md:text-start">More than just shorter links</h1>
+							<p class="paragraph md:text-start">
+								Build your brand's recognition and get detailed insights on how
+								your links are performing.
+							</p>
+							<button class="btn-cta xl:mt-12">Get Started</button>
+						</div>
+
+						<!-- Hero Image -->
+						<div class="relative w-full z-0 md:w-1/2">
+							<img
+								src="/illustration-working.svg"
+								alt="working hero illustration"
+								class="relative z-0 min-w-[500px] md:min-w-[600px] xl:min-w-[700px] left-6 xl:left-24"
+							/>
+						</div>
+					</div>
+				</section>
+			</div>
+
+			<!-- Gray BG Section -->
+			<div class="bg-bg-gray w-full flex flex-col items-center mt-36">
+				<div class="main-container">
+					<section id="shortener" class="bg-bg-gray w-full relative pb-20">
+						<!-- Input -->
+						<div
+							class="relative w-full bottom-20 flex flex-col p-6 md:p-10 bg-dark-violet overflow-hidden rounded-lg"
+						>
+							<img
+								src="/bg-shorten-mobile.svg"
+								alt="bg shortener mobile"
+								class="md:hidden absolute top-0 right-0 w-3/4"
+							/>
+							<img
+								src="/bg-shorten-desktop.svg"
+								alt="bg shortener mobile"
+								class="hidden md:block absolute top-0 right-0 w-full h-full"
+							/>
+
+							<form class="relative z-10 w-full md:flex md:gap-6">
+								<div class="w-full flex flex-col-reverse gap-2">
+									<label
+										for="input-shortener"
+										id="label-shortener"
+										class="hidden text-red text-xs italic"
+									></label>
+									<input
+										type="text"
+										placeholder="Shorten a link here..."
+										id="input-shortener"
+										name="input-shortener"
+										class="w-full px-4 md:px-6 py-3 rounded-md font-sans outline-none transition-all duration-300 ease-in-out"
+									/>
+								</div>
+								<button class="shortener-cta md:mt-0 md:h-full" type="submit">
+									Shorten It!
+								</button>
+							</form>
+						</div>
+
+						<!-- Links -->
+						<div class="flex flex-col gap-6">
+							<div class="link-container">
+								<div
+									class="flex flex-col gap-4 md:flex-1 md:flex-row md:justify-between"
+								>
+									<a href="#" class="truncate">https://www.frontendmentor.io</a>
+
+									<div class="relative md:hidden">
+										<div class="link-divider"></div>
+									</div>
+
+									<a href="#" class="text-medium text-cyan"
+										>https://rel.ink/12345</a
+									>
+								</div>
+								<button class="shortener-cta mt-0 md:w-32">Copy</button>
+							</div>
+						</div>
+					</section>
+
+					<section id="statistics" class="bg-bg-gray pb-36 md:pb-40">
+						<div class="md:flex md:flex-col md:items-center">
+							<h1 class="secondary-title">Advanced Statistics</h1>
+							<p class="paragraph md:w-[500px]">
+								Track how your links are performing across the web with our
+								advanced statistics dashboard.
+							</p>
+						</div>
+
+						<div
+							class="w-full mt-24 flex flex-col md:flex-row items-center justify-center gap-8 relative"
+						>
+							<div class="card-statistics">
+								<div class="card-icon">
+									<img
+										src="/icon-brand-recognition.svg"
+										alt="brand recognition icon"
+									/>
+								</div>
+								<h2 class="tertiary-title md:text-start mt-12 md:mt-8">
+									Brand Recognition
+								</h2>
+								<p class="paragraph md:text-start">
+									Boost your brand recognition with each click. Generic links
+									don't mean a thing. Branded links help instil confidence in
+									your content.
+								</p>
+							</div>
+
+							<hr class="statistics-line" />
+
+							<div class="card-statistics top-8">
+								<div class="card-icon">
+									<img
+										src="/icon-detailed-records.svg"
+										alt="detailed records icon"
+									/>
+								</div>
+								<h2 class="tertiary-title md:text-start mt-12 md:mt-8">
+									Detailed Records
+								</h2>
+								<p class="paragraph md:text-start">
+									Gain insights into who is clicking your links. Knowing when
+									and where people engage with your content helps inform better
+									decisions.
+								</p>
+							</div>
+
+							<hr class="statistics-line" />
+
+							<div class="card-statistics top-16">
+								<div class="card-icon">
+									<img
+										src="/icon-fully-customizable.svg"
+										alt="fully customizable icon"
+									/>
+								</div>
+								<h2 class="tertiary-title md:text-start mt-12 md:mt-8">
+									Fully Customizable
+								</h2>
+								<p class="paragraph md:text-start">
+									Improve brand awareness and content discoverability through
+									customizable links, supercharging audience engagement.
+								</p>
+							</div>
+						</div>
+					</section>
+				</div>
+
+				<section
+					id="cta"
+					class="bg-dark-violet py-20 relative overflow-hidden w-full"
+				>
 					<img
-						src="/illustration-working.svg"
-						alt="working hero illustration"
+						src="/bg-boost-mobile.svg"
+						alt="bg boost mobile"
+						class="md:hidden absolute top-0 right-0 w-full z-0"
 					/>
-				</div>
-			</div>
 
-			<div>
-				<input type="text" placeholder="Shorten a link here..." />
-				<button>Shorten It!</button>
-			</div>
-		</section>
-
-		<section id="statistics">
-			<div>
-				<h1>Advanced Statistics</h1>
-				<p>
-					Track how your links are performing across the web with our advanced
-					statistics dashboard.
-				</p>
-			</div>
-
-			<div>
-				<div>
-					<img src="/icon-brand-recognition.svg" alt="brand recognition icon" />
-					<h2>Brand Recognition</h2>
-					<p>
-						Boost your brand recognition with each click. Generic links don't
-						mean a thing. Branded links help instil confidence in your content.
-					</p>
-				</div>
-				<div>
-					<img src="/icon-detailed-records.svg" alt="detailed records icon" />
-					<h2>Detailed Records</h2>
-					<p>
-						Gain insights into who is clicking your links. Knowing when and
-						where people engage with your content helps inform better decisions.
-					</p>
-				</div>
-				<div>
 					<img
-						src="/icon-fully-customizable.svg"
-						alt="fully customizable icon"
+						src="/bg-boost-desktop.svg"
+						alt="bg boost desktop"
+						class="hidden md:block absolute top-0 right-0 w-full h-full z-0"
 					/>
-					<h2>Fully Customizable</h2>
-					<p>
-						Improve brand awareness and content discoverability through
-						customizable links, supercharging audience engagement.
-					</p>
-				</div>
-			</div>
-		</section>
+					<div class="relative z-20 flex flex-col items-center">
+						<h1 class="secondary-title text-white">Boost your links today</h1>
+						<button class="btn-cta mt-4">Get Started</button>
+					</div>
+				</section>
 
-		<section id="cta">
-			<h1>Boost your links today</h1>
-			<button>Get Started</button>
-		</section>
+				<footer
+					class="bg-very-dark-violet w-full flex items-center justify-center"
+				>
+					<div
+						class="max-w-6xl w-full flex flex-col md:flex-row items-center md:items-start gap-12 py-12 px-5 md:px-12"
+					>
+						<div class="w-[25%]">
+							<img src="/logo-white.svg" alt="shortly logo" />
+						</div>
 
-		<footer>
-			<div><img src="/logo.svg" alt="shortly logo" /></div>
-			<div>
-				<div>
-					<h3>Features</h3>
-					<ul>
-						<li><a href="#">Link Shortening</a></li>
-						<li><a href="#">Branded Links</a></li>
-						<li><a href="#">Analytics</a></li>
-					</ul>
-				</div>
-				<div>
-					<h3>Resources</h3>
-					<ul>
-						<li><a href="#">Blog</a></li>
-						<li><a href="#">Developers</a></li>
-						<li><a href="#">Support</a></li>
-					</ul>
-				</div>
-				<div>
-					<h3>Company</h3>
-					<ul>
-						<li><a href="#">About</a></li>
-						<li><a href="#">Our Team</a></li>
-						<li><a href="#">Careers</a></li>
-						<li><a href="#">Contact</a></li>
-					</ul>
-				</div>
-			</div>
-			<div>
-				<img src="/icon-facebook.svg" alt="facebook logo" />
-				<img src="/icon-twitter.svg" alt="twitter logo" /><img
-					src="/icon-pinterest.svg"
-					alt="pinterest logo"
-				/>
-				<img src="/icon-instagram.svg" alt="instagram logo" />
-			</div>
-		</footer>
+						<div
+							class="flex flex-col md:flex-row items-center md:items-start md:justify-between gap-8 md:gap-0 w-[50%]"
+						>
+							<div>
+								<h2 class="footer-heading">Features</h2>
+								<ul class="footer-list">
+									<li class="cursor-pointer hover:text-cyan">
+										<a href="#">Link Shortening</a>
+									</li>
+									<li class="cursor-pointer hover:text-cyan">
+										<a href="#">Branded Links</a>
+									</li>
+									<li class="cursor-pointer hover:text-cyan">
+										<a href="#">Analytics</a>
+									</li>
+								</ul>
+							</div>
 
-		<section id="attribution">
-			<h1>Clupai</h1>
-		</section>
+							<div>
+								<h2 class="footer-heading">Resources</h2>
+								<ul class="footer-list">
+									<li class="cursor-pointer hover:text-cyan">
+										<a href="#">Blog</a>
+									</li>
+									<li class="cursor-pointer hover:text-cyan">
+										<a href="#">Developers</a>
+									</li>
+									<li class="cursor-pointer hover:text-cyan">
+										<a href="#">Support</a>
+									</li>
+								</ul>
+							</div>
+
+							<div>
+								<h2 class="footer-heading">Company</h2>
+								<ul class="footer-list">
+									<li class="cursor-pointer hover:text-cyan">
+										<a href="#">About</a>
+									</li>
+									<li class="cursor-pointer hover:text-cyan">
+										<a href="#">Our Team</a>
+									</li>
+									<li class="cursor-pointer hover:text-cyan">
+										<a href="#">Careers</a>
+									</li>
+									<li class="cursor-pointer hover:text-cyan">
+										<a href="#">Contact</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="flex items-center gap-6 md:gap-8 md:w-[25%]">
+							<a href="https://facebook.com">
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									width="24px"
+									height="24px"
+									class="footer-icon"
+								>
+									<path
+										d="M22.675 0H1.325C.593 0 0 .593 0 1.325v21.351C0 23.407.593 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116c.73 0 1.323-.593 1.323-1.325V1.325C24 .593 23.407 0 22.675 0z"
+									/>
+								</svg>
+							</a>
+							<a href="https://twitter.com">
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									width="24"
+									height="20"
+									class="footer-icon"
+								>
+									<path
+										d="M24 2.557a9.83 9.83 0 01-2.828.775A4.932 4.932 0 0023.337.608a9.864 9.864 0 01-3.127 1.195A4.916 4.916 0 0016.616.248c-3.179 0-5.515 2.966-4.797 6.045A13.978 13.978 0 011.671 1.149a4.93 4.93 0 001.523 6.574 4.903 4.903 0 01-2.229-.616c-.054 2.281 1.581 4.415 3.949 4.89a4.935 4.935 0 01-2.224.084 4.928 4.928 0 004.6 3.419A9.9 9.9 0 010 17.54a13.94 13.94 0 007.548 2.212c9.142 0 14.307-7.721 13.995-14.646A10.025 10.025 0 0024 2.557z"
+									/>
+								</svg>
+							</a>
+							<a href="https://pinterest.com">
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									width="24"
+									height="24"
+									class="footer-icon"
+								>
+									<path
+										d="M12 0C5.373 0 0 5.372 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 01.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"
+									/>
+								</svg>
+							</a>
+							<a href="https://instagram.com">
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									width="24"
+									height="24"
+									class="footer-icon"
+								>
+									<path
+										d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"
+									/>
+								</svg>
+							</a>
+						</div>
+					</div>
+				</footer>
+
+				<section id="attribution">
+					<h1>Clupai</h1>
+				</section>
+			</div>
+		</main>
 	</body>
 </html>
