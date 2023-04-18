@@ -39,12 +39,16 @@
 
 				<!-- Desktop CTA buttons -->
 				<div class="hidden md:flex items-center gap-6 xl:gap-10">
-					<a href="#" class="text-grayish-violet cursor-pointer hover:text-very-dark-blue">Login</a>
+					<a
+						href="#"
+						class="text-grayish-violet cursor-pointer hover:text-very-dark-blue"
+						>Login</a
+					>
 					<button class="btn-cta mt-0">Sign Up</button>
 				</div>
 
 				<!-- Mobile Burger -->
-				<button class="md:hidden">
+				<button class="" id="burger">
 					<input type="checkbox" id="checkbox" />
 					<label for="checkbox" class="toggle">
 						<div class="bars" id="bar1"></div>
@@ -57,6 +61,7 @@
 
 		<!-- Mobile Navigation -->
 		<div
+			id="nav-mobile"
 			class="hidden fixed z-50 text-white bg-[hsl(257,27%,26%)] w-[calc(100%-40px)] left-5 top-36 rounded-lg px-5 py-8"
 		>
 			<ul class="flex flex-col justify-center items-center gap-5 font-semibold">
@@ -375,5 +380,7 @@
 				</section>
 			</div>
 		</main>
+
+		<script src="/src/js/mobile-nav.js" type="module"></script>
 	</body>
 </html>
