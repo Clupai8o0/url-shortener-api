@@ -8,11 +8,17 @@ function openMobileNav() {
 	mobileNavOverlay.classList.remove("hidden");
 	mobileNavOverlay.classList.remove("fade-out-top");
 	mobileNav.classList.remove("fade-in-top");
-	mobileNav.classList.add("fade-in-top")
+	mobileNav.classList.add("fade-in-top");
 	open = true;
 }
 
 function closeMobileNav() {
+	const timeout = setTimeout(() => {
+		mobileNavOverlay.classList.add("hidden");
+		return () => {
+			clearTimeout(timeout);
+		};
+	}, 400);
 	mobileNav.classList.remove("fade-in-top");
 	mobileNavOverlay.classList.remove("fade-out-top");
 	mobileNavOverlay.classList.add("fade-out-top");

@@ -4,6 +4,7 @@ const input = document.getElementById("input-shortener");
 const parentLinks = document.getElementById("links");
 
 const links = [];
+let error = false;
 
 function handleError(msg) {
 	// label
@@ -12,12 +13,15 @@ function handleError(msg) {
 
 	// input
 	input.classList.add("error");
+
+	error = true;
 }
 
 function clearError(time = 0) {
 	const timeout = setTimeout(() => {
 		label.classList.add("hidden");
 		input.classList.remove("error");
+		error = false
 		return () => {
 			clearTimeout(timeout);
 		};
@@ -38,22 +42,6 @@ async function shorten(link = "") {
 	}
 }
 
-function copyText(text, i) {
-	navigator.clipboard.writeText(text);
-	const btnCopy = document.getElementById(`btn-copy-${i}`);
-
-	btnCopy.innerText = "Copied!";
-	btnCopy.classList.add("bg-dark-violet", "hover:bg-dark-violet");
-
-	const timeout = setTimeout(() => {
-		btnCopy.innerText = "Copy";
-		btnCopy.classList.remove("bg-dark-violet", "hover:bg-dark-violet");
-		return () => {
-			clearTimeout(timeout);
-		};
-	}, 2000);
-}
-
 input.addEventListener("change", () => clearError());
 
 form.addEventListener("submit", async (e) => {
@@ -63,7 +51,7 @@ form.addEventListener("submit", async (e) => {
 	await shorten(input.value);
 	input.value = "";
 
-	window.location.reload();
+	if (!error) window.location.reload();
 });
 
 window.onload = function () {
@@ -86,9 +74,26 @@ window.onload = function () {
           >${link.s}</a
         >
       </div>
-      <button class="shortener-cta mt-0 md:w-32" onClick="copyText('${link.s}', ${i})" id="btn-copy-${i}">Copy</button>
+      <button class="shortener-cta mt-0 md:w-32" id="btn-copy-${i}">Copy</button>
     </div>
     `;
 	});
 	parentLinks.innerHTML = content;
+	links.forEach((link, i) => {
+		const btnCopy = document.getElementById(`btn-copy-${i}`)
+		btnCopy.addEventListener("click", () => {
+			navigator.clipboard.writeText(link.s);
+
+			btnCopy.innerText = "Copied!";
+			btnCopy.classList.add("bg-dark-violet", "hover:bg-dark-violet");
+
+			const timeout = setTimeout(() => {
+				btnCopy.innerText = "Copy";
+				btnCopy.classList.remove("bg-dark-violet", "hover:bg-dark-violet");
+				return () => {
+					clearTimeout(timeout);
+				};
+			}, 2000);
+		})
+	})
 };

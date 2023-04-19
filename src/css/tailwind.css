@@ -756,6 +756,22 @@ video {
   color: hsl(0 87% 67% / var(--tw-text-opacity));
 }
 
+.\!error{
+  border-width: 4px;
+  --tw-border-opacity: 1;
+  border-color: hsl(0 87% 67% / var(--tw-border-opacity));
+}
+
+.\!error::-moz-placeholder{
+  --tw-text-opacity: 1;
+  color: hsl(0 87% 67% / var(--tw-text-opacity));
+}
+
+.\!error::placeholder{
+  --tw-text-opacity: 1;
+  color: hsl(0 87% 67% / var(--tw-text-opacity));
+}
+
 .shortener-cta{
   margin-top: 2rem;
   border-radius: 9999px;
