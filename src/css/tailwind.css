@@ -1,5 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
 
+@import url(https://fonts.googleapis.com/css?family=Comfortaa:700);
+
 /*
 ! tailwindcss v3.3.1 | MIT License | https://tailwindcss.com
 */
@@ -740,22 +742,6 @@ video {
   }
 }
 
-.error{
-  border-width: 4px;
-  --tw-border-opacity: 1;
-  border-color: hsl(0 87% 67% / var(--tw-border-opacity));
-}
-
-.error::-moz-placeholder{
-  --tw-text-opacity: 1;
-  color: hsl(0 87% 67% / var(--tw-text-opacity));
-}
-
-.error::placeholder{
-  --tw-text-opacity: 1;
-  color: hsl(0 87% 67% / var(--tw-text-opacity));
-}
-
 .\!error{
   border-width: 4px;
   --tw-border-opacity: 1;
@@ -768,6 +754,22 @@ video {
 }
 
 .\!error::placeholder{
+  --tw-text-opacity: 1;
+  color: hsl(0 87% 67% / var(--tw-text-opacity));
+}
+
+.error{
+  border-width: 4px;
+  --tw-border-opacity: 1;
+  border-color: hsl(0 87% 67% / var(--tw-border-opacity));
+}
+
+.error::-moz-placeholder{
+  --tw-text-opacity: 1;
+  color: hsl(0 87% 67% / var(--tw-text-opacity));
+}
+
+.error::placeholder{
   --tw-text-opacity: 1;
   color: hsl(0 87% 67% / var(--tw-text-opacity));
 }
@@ -1120,6 +1122,11 @@ video {
   padding-bottom: 5rem;
 }
 
+.py-28{
+  padding-top: 7rem;
+  padding-bottom: 7rem;
+}
+
 .py-3{
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
@@ -1142,13 +1149,30 @@ video {
   padding-top: 6rem;
 }
 
+.text-center{
+  text-align: center;
+}
+
 .font-sans{
   font-family: Poppins, Arial, Helvetica, sans-serif;
+}
+
+.font-\[Comfortaa\]{
+  font-family: Comfortaa;
+}
+
+.text-4xl{
+  font-size: 2.25rem;
+  line-height: 2.5rem;
 }
 
 .text-xs{
   font-size: 0.75rem;
   line-height: 1rem;
+}
+
+.font-bold{
+  font-weight: 700;
 }
 
 .font-semibold{
@@ -1244,6 +1268,26 @@ body {
 
 .fade-out-top {
   animation: fade-in-top 0.3s ease-out reverse both;
+}
+
+#attribution {
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .hover\:bg-dark-violet:hover{
@@ -1366,6 +1410,11 @@ body {
 
   .md\:text-start{
     text-align: start;
+  }
+
+  .md\:text-5xl{
+    font-size: 3rem;
+    line-height: 1;
   }
 }
 
